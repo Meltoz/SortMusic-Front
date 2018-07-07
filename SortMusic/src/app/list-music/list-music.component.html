@@ -1,0 +1,35 @@
+<div class="composant">
+  <div class="composantList">
+    <h2>Listes des musiques</h2>
+    <ul class="musics">
+      <li *ngFor="let music of musicsName"
+        [class.selected]="music === selectedMusic"
+        (click)="onSelect(music)">
+         {{music}}
+      </li>
+    </ul>
+    </div>
+
+    <!--
+      Composant de details des musiques
+    -->
+    <div class="composantDetails">
+      <h2>Détails</h2>
+      <div>
+        <span>Titre : </span> <i *ngIf="music != null">{{music.title}} </i> <br/>
+        <span>Durée : </span> <i *ngIf="music != null">{{ music.duration }} secondes</i><br/>
+        <span>Nom du fichier : </span> <i *ngIf="music != null">{{ music.fileName }}</i><br/>
+      </div>
+  </div>
+  <div class="componentGenre">
+    <h3>Genre</h3>
+    <mat-autocomplete>
+      <mat-option *ngFor="let test of options" [value] = "test">
+        {{ test }}
+      </mat-option>
+    </mat-autocomplete>
+  </div>
+
+</div>
+
+
